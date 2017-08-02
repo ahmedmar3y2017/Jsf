@@ -8,17 +8,28 @@
 <h:head>
 <title>Hello World ....</title>
 
+
+<style>
+<!--
+.error{color: red;}
+-->
+</style>
+
 </h:head>
 
 <h:body>
 
 <h:form>
 
-FirstName : <h:inputText id="firstName" value="#{studentTwo.firstName}"  > </h:inputText>
+<!-- <h:messages  styleClass="error"></h:messages> -->
+
+FirstName : <h:inputText id="firstName" value="#{studentTwo.firstName}" label="firstName"  required="true"  requiredMessage="Please Enter your FirstNamr ... "> </h:inputText>
+ <h:message for="firstName" styleClass="error" ></h:message>
 <br></br>
 <br></br>
 
-LastName : <h:inputText id="lastName" value="#{studentTwo.lastName}"  > </h:inputText>
+LastName : <h:inputText id="lastName" value="#{studentTwo.lastName}" label="lastName"  required="true" requiredMessage="Please Enter your LastName ...."> </h:inputText>
+ <h:message for="lastName"  styleClass="error"></h:message>
 <br></br>
 <br></br>
 
@@ -43,7 +54,7 @@ Favoutity Language :
 <br></br>
 <br></br>
 Select Many Favorit Languges : 
-<h:selectManyCheckbox value="#{studentTwo.listLang}">
+<h:selectManyCheckbox value="#{studentTwo.listLang}" >
 
 <f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
 </h:selectManyCheckbox>

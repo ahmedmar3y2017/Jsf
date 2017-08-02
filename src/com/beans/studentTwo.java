@@ -25,8 +25,8 @@ public class studentTwo {
 	public studentTwo() {
 	
 		//   init values into form jsf page 
-		firstName="ahmed";
-		lastName="mar3y";
+//		firstName="ahmed";
+//		lastName="mar3y";
 		
 		
 		// country 
