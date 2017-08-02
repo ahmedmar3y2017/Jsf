@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsf/composite"
+       xmlns:f="http://java.sun.com/jsf/core"
+      >
+<h:head>
+<title>Hello World ....</title>
+
+</h:head>
+
+<h:body>
+
+<h:form>
+
+FirstName : <h:inputText id="firstName" value="#{studentTwo.firstName}"  > </h:inputText>
+<br></br>
+<br></br>
+
+LastName : <h:inputText id="lastName" value="#{studentTwo.lastName}"  > </h:inputText>
+<br></br>
+<br></br>
+
+Country : <h:selectOneMenu value="#{studentTwo.country}"> 
+<f:selectItem itemLabel="egypt" itemValue="egypt"></f:selectItem>
+<f:selectItem itemLabel="cairo" itemValue="cairo"></f:selectItem>
+<f:selectItem itemLabel="shebin" itemValue="shebin"></f:selectItem>
+<f:selectItem itemLabel="alex" itemValue="alex"></f:selectItem>
+
+</h:selectOneMenu>
+
+
+
+
+<h:commandButton value="Click" action="next" ></h:commandButton>
+
+</h:form>
+
+
+</h:body>
+
+
+
+</html>
