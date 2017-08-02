@@ -22,17 +22,33 @@ LastName : <h:inputText id="lastName" value="#{studentTwo.lastName}"  > </h:inpu
 <br></br>
 <br></br>
 
+
+<!-- ********** make it dynamic from javaCode ************ -->
 Country : <h:selectOneMenu value="#{studentTwo.country}"> 
-<f:selectItem itemLabel="egypt" itemValue="egypt"></f:selectItem>
-<f:selectItem itemLabel="cairo" itemValue="cairo"></f:selectItem>
-<f:selectItem itemLabel="shebin" itemValue="shebin"></f:selectItem>
-<f:selectItem itemLabel="alex" itemValue="alex"></f:selectItem>
-
+<f:selectItems value="#{studentTwo.countryOptions}"></f:selectItems>
+<!-- this is hard coded ******* -->
+<!-- <f:selectItem itemLabel="egypt" itemValue="egypt"></f:selectItem> -->
+<!-- <f:selectItem itemLabel="cairo" itemValue="cairo"></f:selectItem> -->
+<!-- <f:selectItem itemLabel="shebin" itemValue="shebin"></f:selectItem> -->
+<!-- <f:selectItem itemLabel="alex" itemValue="alex"></f:selectItem> -->
 </h:selectOneMenu>
+<br></br>
+<br></br>
+Favoutity Language : 
+<h:selectOneRadio value="#{studentTwo.language}">
 
+<f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
 
+</h:selectOneRadio>
+<br></br>
+<br></br>
+Select Many Favorit Languges : 
+<h:selectManyCheckbox value="#{studentTwo.listLang}">
 
-
+<f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
+</h:selectManyCheckbox>
+<br></br>
+<br></br>
 <h:commandButton value="Click" action="next" ></h:commandButton>
 
 </h:form>

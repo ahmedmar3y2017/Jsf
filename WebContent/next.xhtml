@@ -14,6 +14,18 @@ The student is : #{studentTwo.firstName} , #{studentTwo.lastName}
 <br ></br>
 
 The country is : #{studentTwo.country}
+<br ></br>
+
+The language is : #{studentTwo.language}
+<br ></br>
+
+The languages is :
+<ul >
+ <ui:repeat value="#{studentTwo.listLang}" var="lan">
+<li>#{lan}</li>
+</ui:repeat>
+
+</ul>
 
 </h:body>
 
