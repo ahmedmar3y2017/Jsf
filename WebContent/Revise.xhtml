@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+       xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<h:form>
+<h:commandButton value="Click" action="#{revise.OnClick}"></h:commandButton>
+
+
+
+<br></br><br></br>
+--------------------------
+<br></br><br></br>
+<h:inputText value="#{revise.text}"> </h:inputText>
+
+<h:commandButton value="Click Input " action="#{revise.Click}"></h:commandButton>
+
+<h:outputText value="#{revise.outputText}"></h:outputText>
+
+
+<br></br><br></br>
+--------------------------
+<br></br><br></br>
+<h:inputText  value="#{revise.pagrNumber}"> </h:inputText><h:commandButton value="Forward .... " action="#{revise.forward}"></h:commandButton>
+<br></br><br></br>
+--------------------------
+<br></br><br></br>
+<h:inputSecret  value="#{revise.password}"> </h:inputSecret><h:commandButton value="Show password ... " action="#{revise.showPassword}"></h:commandButton>
+<br></br><br></br>
+--------------------------
+<br></br><br></br>
+<h:selectBooleanCheckbox value="#{revise.boolcheck}" ></h:selectBooleanCheckbox>Print ya Man 
+<h:commandButton value="Print Boolean " action="#{revise.printBoolean}"></h:commandButton>
+<br></br><br></br>
+--------------------------
+<br></br><br></br>
+<h:selectManyCheckbox value="#{revise.values}">
+<f:selectItems value="#{revise.items}"></f:selectItems>
+</h:selectManyCheckbox>
+<h:commandButton value="Show Checks ..." action="#{revise.showArray}"></h:commandButton>
+
+</h:form>
+<br></br><br></br>
+------------------- Upload File ----------------
+<br></br><br></br>
+<h:form enctype="multipart/form-data">
+<h:inputFile value="#{revise.file}" ></h:inputFile>
+<h:commandButton value="Upload File" action="#{revise.UploadFile}"></h:commandButton>
+</h:form>
+
+</body>
+</html>

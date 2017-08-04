@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+       xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+        <h:head>
+        
+        <h:form>
+        <h:dataTable value="#{topics.topics}" var="t">
+        
+        <h:column>
+        <f:facet name="header" >Id</f:facet>
+        <h:outputText value="#{t.id}"></h:outputText>
+        </h:column>
+        <h:column>
+        <f:facet name="header">username</f:facet>
+        <h:outputText value="#{t.username}"></h:outputText>
+        </h:column>
+        <h:column>
+        <f:facet name="header">description</f:facet>
+        <h:outputText value="#{t.description}"></h:outputText>
+        </h:column>
+         <h:column>
+        <f:facet name="header">Action</f:facet>
+        <h:commandButton value="select" action="#{topics.select(t)}"></h:commandButton>
+        </h:column>
+        
+        </h:dataTable>
+        
+        
+        
+        <br></br>
+        <br></br>
+        <h3 >Selected Topics ... </h3>
+        
+        <table >
+        
+        <tr>
+        <td>Id</td>
+        <td> <h:inputText value="#{topics.selectedTopics.id}"></h:inputText>  </td>
+        </tr>
+         <tr>
+        <td>username</td>
+        <td> <h:inputText value="#{topics.selectedTopics.username}"></h:inputText>  </td>
+        </tr>
+        
+         <tr>
+        <td>description</td>
+        <td> <h:inputText value="#{topics.selectedTopics.description}"></h:inputText>  </td>
+        </tr>
+          <tr>
+     
+        <td> <h:commandButton  value="Delete" action="#{topics.delete}"></h:commandButton></td>
+             <td> <h:commandButton  value="Update" action="#{topics.update}"></h:commandButton></td>
+     
+        </tr>
+     
+        
+        </table>
+        
+        
+        </h:form>
+        
+        </h:head>
+        
+
+</html>
