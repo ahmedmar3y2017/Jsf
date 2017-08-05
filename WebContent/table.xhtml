@@ -61,6 +61,37 @@
         
         </table>
         
+        <br></br>
+        <br></br>
+        --------------------  Ui Repeat -------------
+        <br></br>
+        <br></br>
+        
+        <table>
+        <thead>
+        <tr>
+        
+        <td>Id</td>
+        <td>UserName</td>
+        <td>Description</td>
+        </tr>
+        </thead>
+        
+        <tbody>
+     <ui:repeat var="t" value="#{topics.topics}">
+     
+        <tr >
+        <td>#{t.id}</td>
+        <td>#{t.username}</td>
+        <td>#{t.description}</td>
+        </tr>
+     </ui:repeat>
+        
+        </tbody>
+        
+        
+        </table>
+        
         
         </h:form>
         
