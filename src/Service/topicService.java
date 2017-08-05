@@ -14,29 +14,28 @@ import Entities.Topics;
 
 public class topicService {
 
-	public static void main(String[] args) {
+	// public static void main(String[] args) {
+	//
+	//// new topicService().insert(new Topics("10", "ahmed", "ahmed"));
+	//// new topicService().delete(new Topics("10", "ahmed", "ahmed"));
+	//// new topicService().update(new Topics("99", "mohamed", "eslam"));
+	//
+	//// new topicService().getAll();
+	// }
 
-//		 new topicService().insert(new Topics("1", "ahmed", "ahmed"));
-//		new topicService().delete(new Topics("1", "ahmed", "ahmed"));
-		// new topicService().update(new Topics("ahmed", "mohamed", "eslam"));
-
-		new topicService().getAll();
-	}
-
-	private void update(Topics topics) {
+	public void update(Topics topics) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		session.beginTransaction();
 
 		session.saveOrUpdate(topics);
-
 		session.getTransaction().commit();
 
 		session.close();
 	}
 
-	private List<Topics> getAll() {
+	public  List<Topics> getAll() {
 		// TODO Auto-generated method stub
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -76,30 +75,23 @@ public class topicService {
 
 		session.beginTransaction();
 
-		Query query =session.createQuery("From Topics where id=:id");
+		Query query = session.createQuery("From Topics where id=:id");
 		query.setParameter("id", topics.getId());
-		Topics oo =(Topics) query.uniqueResult();
-	
+		Topics oo = (Topics) query.uniqueResult();
 
 		if (oo != null) {
-	
+
 			System.out.println("Done");
-			Query query1 =session.createQuery("delete from Topics where id=:id");
+			Query query1 = session.createQuery("delete from Topics where id=:id");
 			query1.setParameter("id", oo.getId());
-			
+
 			query1.executeUpdate();
-	
 
 		}
-		
-		
-		session.getTransaction().commit();
-	
-		session.close();
 
-		
-		
-		
+		session.getTransaction().commit();
+
+		session.close();
 
 	}
 

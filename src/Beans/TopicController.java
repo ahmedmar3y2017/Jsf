@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import Entities.Topics;
+import Service.topicService;
 
 @ManagedBean(name = "topics")
 @SessionScoped
@@ -16,13 +17,12 @@ public class TopicController {
 	List<Topics> topics = null;
 
 	Topics selectedTopics;
-
+topicService topicService;
 	@PostConstruct
 	public void init() {
-		topics = new ArrayList<>();
-		topics.add(new Topics("java", "java", "java"));
-		topics.add(new Topics("c++", "c++", "c++"));
-		topics.add(new Topics("php", "php", "php"));
+		topicService=new topicService();
+		topics = topicService.getAll();
+
 		selectedTopics = new Topics();
 
 	}
@@ -33,10 +33,15 @@ public class TopicController {
 
 	public void delete() {
 		topics.remove(selectedTopics);
+		topicService.delete(selectedTopics);
 	}
 
 	public void update() {
-		this.selectedTopics = new Topics();
+		topics.remove(this.selectedTopics);
+		topics.add(selectedTopics);
+//		this.selectedTopics = new Topics();
+		System.out.println(selectedTopics.getId() + "   "+selectedTopics.getUsername());
+		topicService.update(selectedTopics);
 	}
 
 	public Topics getSelectedTopics() {

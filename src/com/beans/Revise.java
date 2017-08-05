@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -25,10 +27,34 @@ public class Revise {
 	private boolean boolcheck;
 	List<String> items ; 
 	List<String> values ; 
+	private String time ; 
 
 	private Part file;
 	
+//	*************** show Time ********
+	public void showTime() {
+		
+		Date d=new Date();
+		
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("hh:mm:ss");
+		time=simpleDateFormat.format(d);
+		
+	}
 	
+	
+	//****** ajax function ******
+	public void clickAjax() {
+		
+		System.out.println("Ajax Functions ....");
+		
+	}
+public void changeAjax() {
+		
+		System.out.println("changeAjax Functions ....");
+		
+	}
+	
+	// ****** upload file ******
 	public void UploadFile() {
 		
 		try {
@@ -80,6 +106,13 @@ public class Revise {
 		System.out.println(values);
 	}
 	
+	
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public List<String> getItems() {
 		return items;
 	}
