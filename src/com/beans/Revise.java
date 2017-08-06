@@ -35,22 +35,62 @@ public class Revise {
 	private String time;
 	private String inputmessage;
 	private Part file;
+	private Date date;
+	private double amount;
+	private boolean view;
+
+	public void show() {
+		this.view = true;
+
+	}
+
+	public void hide() {
+
+		this.view = false;
+
+	}
+
+	public boolean isView() {
+		return view;
+	}
+
+	public void setView(boolean view) {
+		this.view = view;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void convert() {
+
+		System.out.println("Date is : " + date);
+
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	public void messageAction() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 
 		if (inputmessage.equals("1")) {
-			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Info Message ... ", "Detail ..."));
+			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info Message ... ", "Detail ..."));
 		} else if (inputmessage.equals("2")) {
-			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"WARN Message ... ", "Detail ..."));
+			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "WARN Message ... ", "Detail ..."));
 		} else if (inputmessage.equals("3")) {
-			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,
-					"FATAL Message ... ", "Detail ..."));
+			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "FATAL Message ... ", "Detail ..."));
 		} else if (inputmessage.equals("4")) {
-			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"ERROR Message ... ", "Detail ..."));
+			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ERROR Message ... ", "Detail ..."));
 		}
 
 	}
@@ -108,13 +148,19 @@ public class Revise {
 		// it's omitted, but the
 		// download progress will be
 		// unknown.
-		ec.setResponseHeader("Content-Disposition", "attachment; filename=\""
-				+ "\"image.jpg\""); // The Save As popup magic is done here. You
-									// can give it any file name you want, this
-									// only won't work in MSIE, it will use
-									// current request URL as file name instead.
-		FileInputStream fileInputStream = new FileInputStream(new File(
-				"D:\\upload\\image.jpg"));
+		ec.setResponseHeader("Content-Disposition", "attachment; filename=\"" + "\"image.jpg\""); // The Save As popup
+																									// magic is done
+																									// here. You
+																									// can give it any
+																									// file name you
+																									// want, this
+																									// only won't work
+																									// in MSIE, it will
+																									// use
+																									// current request
+																									// URL as file name
+																									// instead.
+		FileInputStream fileInputStream = new FileInputStream(new File("D:\\upload\\image.jpg"));
 		OutputStream output = ec.getResponseOutputStream();
 		// Now you can write the InputStream of the file to the above
 		// OutputStream the usual way.
@@ -177,6 +223,8 @@ public class Revise {
 		items.add("c#");
 
 		values = new ArrayList<>();
+
+		amount = 10.15;
 
 	}
 

@@ -80,6 +80,61 @@
 		<h:commandButton value="Doenload File" action="#{revise.download}"></h:commandButton>
 
 	</h:form>
+	<br></br>
+	<br></br> ------------------- Convert to Date ----------------
+	<br></br>
+	<br></br>
+	<h:form>
+
+		<h:inputText value="#{revise.date}">
+			<f:convertDateTime pattern="dd-mm-yy"></f:convertDateTime>
+
+		</h:inputText>
+		<h:commandButton value="convert" action="#{revise.convert}"></h:commandButton>
+
+
+	</h:form>
+
+	<br></br>
+	<br></br> ------------------- Convert to number ----------------
+	<br></br>
+	<br></br>
+
+	<h:form>
+		<h:outputText value="#{revise.amount}">
+			<f:convertNumber minFractionDigits="2" />
+		</h:outputText>
+		<br />
+		<h:outputText value="#{revise.amount}">
+			<f:convertNumber pattern="#0.00" />
+		</h:outputText>
+		<br />
+		<h:outputText value="#{revise.amount}">
+			<f:convertNumber currencySymbol="$" type="currency" />
+		</h:outputText>
+		<br />
+		<h:outputText value="#{revise.amount}">
+			<f:convertNumber type="percent" />
+		</h:outputText>
+
+	</h:form>
+	<br></br>
+	<br></br> ------------------- show and hide component ----------------
+	<br></br>
+	<br></br>
+	<h:form>
+
+		<h:commandButton action="#{revise.show}" value="show">
+			<f:ajax  render="ttt"></f:ajax>
+		</h:commandButton>
+		<h:commandButton action="#{revise.hide}" value="hide">
+			<f:ajax  render="ttt"></f:ajax>
+		</h:commandButton>
+		<h:inputText id="ttt" rendered="#{revise.view}"></h:inputText>
+
+
+	</h:form>
+
 
 
 </body>

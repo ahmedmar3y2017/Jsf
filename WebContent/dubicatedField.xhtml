@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:body>
+
+	<h:form>
+
+		<table>
+			<tr>
+				<td>company</td>
+				<td>position</td>
+
+			</tr>
+			<ui:repeat value="#{fields.experiences}" var="e">
+
+				<tr>
+					<td><h:inputText value="#{e.comapny}"></h:inputText></td>
+					<td><h:selectOneMenu value="#{e.position}">
+							<f:selectItems value="#{fields.positions}"></f:selectItems>
+						</h:selectOneMenu></td>
+					<td><h:commandButton action="#{fields.remove(e)}"
+							value="Remove"></h:commandButton></td>
+
+				</tr>
+
+			</ui:repeat>
+			<tr>
+				<td><h:commandButton value="Add" action="#{fields.add}">
+						<f:ajax execute="@form" render="@form"></f:ajax>
+					</h:commandButton> <h:commandButton value="Save" action="#{fields.save}">
+						<f:ajax execute="@form" render="@form"></f:ajax>
+					</h:commandButton></td>
+
+			</tr>
+
+
+		</table>
+
+	</h:form>
+
+
+
+</h:body>
+
+</html>
