@@ -18,10 +18,40 @@ public class studentTwo {
 	private String language;
 	
 	private String[] listLang;
+	private String age ;
+	private String email;
 	
 	
 	
 	
+	
+	
+	
+	
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public String getAge() {
+		return age;
+	}
+
+
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+
+
 	public studentTwo() {
 	
 		//   init values into form jsf page 

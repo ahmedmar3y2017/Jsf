@@ -1,18 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:cc="http://java.sun.com/jsf/composite"
-       xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-      >
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-<title>Hello World ....</title>
+	<title>Hello World ....</title>
 
 
-<style>
+	<style>
 <!--
-.error{color: red;}
+.error {
+	color: red;
+}
 -->
 </style>
 
@@ -20,50 +21,78 @@
 
 <h:body>
 
-<h:form>
+	<h:form>
 
-<!-- <h:messages  styleClass="error"></h:messages> -->
+		<!-- <h:messages  styleClass="error"></h:messages> -->
 
-FirstName : <h:inputText id="firstName" value="#{studentTwo.firstName}" label="firstName"  required="true"  requiredMessage="Please Enter your FirstNamr ... "> </h:inputText>
- <h:message for="firstName" styleClass="error" ></h:message>
-<br></br>
-<br></br>
+FirstName : <h:inputText id="firstName" value="#{studentTwo.firstName}"
+			label="firstName" required="true"
+			requiredMessage="Please Enter your FirstName ... "
+			validatorMessage="this is custom validation ....">
 
-LastName : <h:inputText id="lastName" value="#{studentTwo.lastName}" label="lastName"  required="true" requiredMessage="Please Enter your LastName ...."> </h:inputText>
- <h:message for="lastName"  styleClass="error"></h:message>
-<br></br>
-<br></br>
+			<f:validateLength maximum="6" minimum="3">
+			</f:validateLength>
+		</h:inputText>
+		<h:message for="firstName" styleClass="error"></h:message>
+		<br></br>
+		<br></br>
 
+LastName : <h:inputText id="lastName" value="#{studentTwo.lastName}"
+			label="lastName" required="true"
+			requiredMessage="Please Enter your LastName ....">
+		</h:inputText>
+		<h:message for="lastName" styleClass="error"></h:message>
+		<br></br>
+		<br></br>
+Age : <h:inputText id="age" value="#{studentTwo.age}" label="age"
+			required="true" requiredMessage="Please Enter your Age ....">
+			<f:validateLongRange maximum="25" minimum="20">
+			</f:validateLongRange>
+		</h:inputText>
+		<h:message for="age" styleClass="error"></h:message>
+		<br></br>
+		<br></br>
+		Email : <h:inputText id="email" value="#{studentTwo.email}"
+			label="email" required="true"
+			requiredMessage="Please Enter your Email ...."
+			validatorMessage="Email Not Valid .....">
+			<f:validateRegex
+				pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"></f:validateRegex>
 
-<!-- ********** make it dynamic from javaCode ************ -->
-Country : <h:selectOneMenu value="#{studentTwo.country}"> 
-<f:selectItems value="#{studentTwo.countryOptions}"></f:selectItems>
-<!-- this is hard coded ******* -->
-<!-- <f:selectItem itemLabel="egypt" itemValue="egypt"></f:selectItem> -->
-<!-- <f:selectItem itemLabel="cairo" itemValue="cairo"></f:selectItem> -->
-<!-- <f:selectItem itemLabel="shebin" itemValue="shebin"></f:selectItem> -->
-<!-- <f:selectItem itemLabel="alex" itemValue="alex"></f:selectItem> -->
-</h:selectOneMenu>
-<br></br>
-<br></br>
+		</h:inputText>
+		<h:message for="email" styleClass="error"></h:message>
+		<br></br>
+		<br></br>
+
+		<!-- ********** make it dynamic from javaCode ************ -->
+Country : <h:selectOneMenu value="#{studentTwo.country}">
+			<f:selectItems value="#{studentTwo.countryOptions}"></f:selectItems>
+			<!-- this is hard coded ******* -->
+			<!-- <f:selectItem itemLabel="egypt" itemValue="egypt"></f:selectItem> -->
+			<!-- <f:selectItem itemLabel="cairo" itemValue="cairo"></f:selectItem> -->
+			<!-- <f:selectItem itemLabel="shebin" itemValue="shebin"></f:selectItem> -->
+			<!-- <f:selectItem itemLabel="alex" itemValue="alex"></f:selectItem> -->
+		</h:selectOneMenu>
+		<br></br>
+		<br></br>
 Favoutity Language : 
 <h:selectOneRadio value="#{studentTwo.language}">
 
-<f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
+			<f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
 
-</h:selectOneRadio>
-<br></br>
-<br></br>
+		</h:selectOneRadio>
+		<br></br>
+		<br></br>
 Select Many Favorit Languges : 
-<h:selectManyCheckbox value="#{studentTwo.listLang}" >
+<h:selectManyCheckbox value="#{studentTwo.listLang}">
 
-<f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
-</h:selectManyCheckbox>
-<br></br>
-<br></br>
-<h:commandButton value="Click" action="next" ></h:commandButton>
+			<f:selectItems value="#{studentTwo.languageOption}"></f:selectItems>
+		</h:selectManyCheckbox>
+		<br></br>
+		<br></br>
+		<h:commandButton value="Click" action="next"></h:commandButton>
 
-</h:form>
+	</h:form>
 
 
 </h:body>

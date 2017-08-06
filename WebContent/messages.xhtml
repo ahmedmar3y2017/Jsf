@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+	<style>
+.error {
+	background: red;
+	background-color: red;
+	border: 1px;
+}
+</style>
+</h:head>
+
+<h:body>
+
+
+	<h:form>
+
+		<h:inputText value="#{revise.inputmessage}">
+		</h:inputText>
+		<h:commandButton value="CLick" action="#{revise.messageAction}"></h:commandButton>
+		<h:messages errorClass="error"></h:messages>
+	</h:form>
+	<br></br>
+	----------------------- change listener of menu ----------------------
+	<br></br>
+	<h:form>
+
+Countries ...  : <h:selectOneMenu
+			valueChangeListener="#{valueController.valueChange}"
+			onchange="submit()">
+			<f:selectItems value="#{valueController.countries}"></f:selectItems>
+		</h:selectOneMenu>
+		
+		Cities ...  : <h:selectOneMenu>
+			<f:selectItems value="#{valueController.cities}"></f:selectItems>
+		</h:selectOneMenu>
+
+	</h:form>
+
+</h:body>
+
+
+
+
+</html>
